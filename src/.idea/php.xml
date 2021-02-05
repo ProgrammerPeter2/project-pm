@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../../../../../xampp/php" />
+    </include_path>
+  </component>
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter id="c021d9d1-c26f-4dc1-b511-be6f4adcad98" name="peterhorv@localhost:22:23 agent" home="sshConfig://DATA" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" SSH_CONFIG_ID="f4a9c560-52ac-4100-bb6d-175c053b0ba1" SSH_CONFIG_NAME="peterhorv@localhost:22:23 agent" SSH_CREDENTIALS_ID="sshConfig://peterhorv@localhost:22:23 agent" />
+      </interpreter>
+    </interpreters>
+  </component>
+</project>

@@ -1,0 +1,5 @@
+Manage users action:
+    chp - change password
+    tide - edit user datas
+    led - delete user
+    cru - create user

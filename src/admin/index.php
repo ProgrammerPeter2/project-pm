@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Admin felület</title>
 </head>
 <body>
 	<h2>&Uuml;dv.: <?php echo stripcslashes($_GET['name']); ?> !</h2>
 	<p><a href="../logout.php?name='$_GET['name']'">Kijelentkez&eacute;s</a></p>
 	<div id="userConfig">
 		<h2>Felhaszn&aacute;l&oacute;k kezel&eacute;se</h2>
-		<table style="width: 50%; align-items: left;">
+
+		<table style="width: 50%;">
 		<tr>
 			<th style="width: 1%;">Id.</th>
 			<th style="width: 10%;">Felhaszn&aacute;l&oacute;n&eacute;v</th>
@@ -17,7 +18,6 @@
 			<th style="width: 12.25%">M&ucirc;veletek</th>
 		</tr>
 		<?php
-			include "../communication/encode.php";
 			include "../db_conn.php";
 			//mysql
 			$sql = "SELECT * FROM users";
@@ -27,21 +27,23 @@
 				if($row['admin'] == 1){
 					$AdminImage = '<img src="images/pipa.png"/>';
 				}
-				encode('uid',$row['id']);
+				$uid = $row['id'];
+				$chValue = "actions/chpass.php?uid='".$uid.'"';
+				$editValue = "actions/edit.php?uid='".$uid.'"';
+				$delValue = "actions/delete.php?uid='".$uid.'"';
 				echo "<tr>";
-				echo "<td> ".$row['id']." </td>";
+				echo "<td> ".$uid." </td>";
 				echo "<td> ".$row['username']." </td>";
 				echo "<td>".$row['name']."</td>";
 				echo "<td>".$AdminImage."</td>";
 				echo "<td>";
-				echo '<form name="changePass" action="actions/chpass.php" method="POST"> <abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png"/></abbr></form>';
-				echo '<form name="editUser" action="user_actions.php?act&uid=`e $uid`" method="POST"> <abbr title="Edit user datas"><input type="image" name="submit" src="images/edit.png" /></abbr></form>';
-				echo '<form name="deleteUser" action="user_actions.php?act&uid=`dlt $uid`" method="POST"> <abbr title="Delete user"><input type="image" name="submit" src="images/delete.png" /></abbr></form>';
+				echo '<form action="'.$chValue.'" method="post"><abbr title="Change user password"><input type="image" src="images/change pass.png"/></abbr></form>';
+				echo '<form action="'.$editValue.'" method="post"><abbr title="Edit user datas"><input type="image" src="images/edit.png" /></abbr></form>';
+				echo '<form action="'.$delValue.'" method="post><abbr title="Delete user"><input type="image" src="images/delete.png" /></abbr></form>"';
 				echo "</td>";
 				echo "</tr>";	
 			}
 		?>
-
 		</table>
 	</div>
 </body>
