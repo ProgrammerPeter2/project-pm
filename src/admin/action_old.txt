@@ -1,0 +1,13 @@
+#1 action system:
+echo '<td> <form name="actions" action="user_actions.php" method="POST">
+<abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png" value="chpass"/></abbr>
+<abbr title="Edit user datas"><input type="image" name="submit" src="images/edit.png" value="edit"/></abbr>
+<abbr title="Delete user"><input type="image" name="submit" src="images/delete.png" value="delete"/></abbr>
+</form>';
+
+#2 action system:
+echo "<td>";
+echo '<form name="changePass" action="user_actions.php?act&uid=`chp $uid`" method="POST"> <abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png"/></abbr></form>';
+echo '<form name="editUser" action="user_actions.php?act&uid=`e $uid`" method="POST"> <abbr title="Edit user datas"><input type="image" name="submit" src="images/edit.png" /></abbr></form>';
+echo '<form name="deleteUser" action="user_actions.php?act&uid=`dlt $uid`" method="POST"> <abbr title="Delete user"><input type="image" name="submit" src="images/delete.png" /></abbr></form>';
+echo "</td>";
