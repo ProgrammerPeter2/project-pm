@@ -28,7 +28,9 @@
 					$AdminImage = '<img src="images/pipa.png"/>';
 				}
 				$uid = $row['id'];
-				$chValue = "actions/chpass.php?uid='".$uid.'"';
+				$_POST['uid'] = $uid;
+				$_POST['name'] = $row['name'];
+				$chValue = "actions/chpassSite.php?uid='".$uid.'"';
 				$editValue = "actions/edit.php?uid='".$uid.'"';
 				$delValue = "actions/delete.php?uid='".$uid.'"';
 				echo "<tr>";
