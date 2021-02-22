@@ -32,11 +32,12 @@
 				echo "<td>".$row['name']."</td>";
 				echo "<td>".$AdminImage."</td>";
 				echo "<td>";
-				$chPass = "actions/chpassSite.php?uid='".$row['id']."'";
+				$link = "uid=".$row['id']."&name=".$_GET['name'];
+				$chPass = "actions/chpassSite.php?".$link;
 				echo '<form name="changePass" action="'.$chPass.'" method="POST"> <abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png"/></abbr></form>';
-				$editUs = "actions/editSite.php?uid='".$row['id']."'";
+				$editUs = "actions/editSite.php?uid=".$link;
 				echo '<form name="editUser" action="'.$editUs.'" method="POST"> <abbr title="Edit user datas"><input type="image" name="submit" src="images/edit.png" /></abbr></form>';
-				$delUn = "actions/deleteSite.php?uid='".$row['id']."'";
+				$delUn = "actions/deleteSite.php?".$link;
 				echo '<form name="deleteUser" action="'.$delUn.'" method="POST"> <abbr title="Delete user"><input type="image" name="submit" src="images/delete.png" /></abbr></form>';
 				echo "</td>";
 				echo "</tr>";	
