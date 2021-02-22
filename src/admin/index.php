@@ -22,7 +22,6 @@
 			$sql = "SELECT * FROM users";
 			$result = mysqli_query($conn, $sql);
 			while ($row = mysqli_fetch_array($result)) {
-				$_POST['un'] = $row['username'];
 				$AdminImage = '<img src="images/delete.png"/>';
 				if($row['admin'] == 1){
 					$AdminImage = '<img src="images/pipa.png"/>';
@@ -33,9 +32,12 @@
 				echo "<td>".$row['name']."</td>";
 				echo "<td>".$AdminImage."</td>";
 				echo "<td>";
-				echo '<form name="changePass" action="actions/chpassSite.php" method="POST"> <abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png"/></abbr></form>';
-				echo '<form name="editUser" action="user_actions.php?act&uid=`e $uid`" method="POST"> <abbr title="Edit user datas"><input type="image" name="submit" src="images/edit.png" /></abbr></form>';
-				echo '<form name="deleteUser" action="user_actions.php?act&uid=`dlt $uid`" method="POST"> <abbr title="Delete user"><input type="image" name="submit" src="images/delete.png" /></abbr></form>';
+				$chPass = "actions/chpassSite.php?uid='".$row['id']."'";
+				echo '<form name="changePass" action="'.$chPass.'" method="POST"> <abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png"/></abbr></form>';
+				$editUs = "actions/editSite.php?uid='".$row['id']."'";
+				echo '<form name="editUser" action="'.$editUs.'" method="POST"> <abbr title="Edit user datas"><input type="image" name="submit" src="images/edit.png" /></abbr></form>';
+				$delUn = "actions/deleteSite.php?uid='".$row['id']."'";
+				echo '<form name="deleteUser" action="'.$delUn.'" method="POST"> <abbr title="Delete user"><input type="image" name="submit" src="images/delete.png" /></abbr></form>';
 				echo "</td>";
 				echo "</tr>";	
 			}
