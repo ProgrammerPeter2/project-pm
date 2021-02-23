@@ -32,7 +32,7 @@
 				echo "<td>".$row['name']."</td>";
 				echo "<td>".$AdminImage."</td>";
 				echo "<td>";
-				$link = "uid=".$row['id']."&name=".$_GET['name'];
+				$link = "uid=".$row['id']."&un=".$row['username']."&amen=".$_GET['name'];
 				$chPass = "actions/chpassSite.php?".$link;
 				echo '<form name="changePass" action="'.$chPass.'" method="POST"> <abbr title="Change user password"><input type="image" name="submit" src="images/change pass.png"/></abbr></form>';
 				$editUs = "actions/editSite.php?uid=".$link;
