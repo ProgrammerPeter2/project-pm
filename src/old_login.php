@@ -13,11 +13,12 @@ $row = mysqli_fetch_array($result);
 
 if($row['username'] == $uname && $row['password'] == $pass){
 	$name = $row['name'];
+	$uid = $row['id'];
 	$isAdmin = $row['admin'];
 	$sql = "INSERT INTO logs ('type', 'name', 'logTime', 'admin') VALUES ('login', '$name', '$date', '$isAdmin')";
 	mysqli_query($conn, $sql);
 	if($isAdmin == 1){
-		header("Location: admin/index.php?name='$name'");
+		header("Location: admin/index.php?name='$name'&id='$uid'");
 	}elseif($isAdmin == 0){
 		header("Location: home.php?name='$name'");
 	}
